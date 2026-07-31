@@ -1,0 +1,248 @@
+---
+title: glowhub (Currently unavailable)
+description: Command line tool
+---
+# GlowHub
+
+GlowHub is the official command-line interface (CLI) for the LibreGlow ecosystem.
+
+It provides a single, consistent way to discover, install, update, remove, and manage every LibreGlow application from the terminal.
+
+Instead of downloading applications individually, users will only need GlowHub.
+
+---
+
+# Why GlowHub?
+
+As LibreGlow grows, maintaining multiple installation methods becomes increasingly difficult.
+
+GlowHub solves this by becoming the central package manager for the entire ecosystem.
+
+One command.
+
+One tool.
+
+Every LibreGlow application.
+
+---
+
+# Vision
+
+GlowHub is designed around a very simple philosophy:
+
+> Installing software should be as easy as installing a package.
+
+Instead of searching websites, downloading archives, or manually updating applications, everything can be managed from one place.
+
+```bash
+glowhub install glowsnap
+```
+
+---
+
+# Goals
+
+GlowHub aims to provide:
+
+- Simple installation
+- One-command updates
+- Safe package verification
+- Fast downloads
+- Native Linux experience
+- Consistent user interface
+- Open-source infrastructure
+
+---
+
+# Planned Features
+
+## Package Installation
+
+Install any LibreGlow application.
+
+```bash
+glowhub install glowsnap
+```
+
+---
+
+## Package Updates
+
+Update one application or the entire ecosystem.
+
+```bash
+glowhub update
+```
+
+or
+
+```bash
+glowhub update glowsnap
+```
+
+---
+
+## Remove Applications
+
+```bash
+glowhub uninstall glowsnap
+```
+
+---
+
+## Search Packages
+
+```bash
+glowhub search screenshot
+```
+
+Example output:
+
+```
+GlowSnap
+Modern screenshot & annotation tool for Linux
+
+Coming Soon...
+```
+
+---
+
+## Package Information
+
+```bash
+glowhub info glowsnap
+```
+
+Displays:
+
+- Version
+- Description
+- Homepage
+- Repository
+- License
+- Size
+- Dependencies
+
+---
+
+## Installed Packages
+
+```bash
+glowhub list
+```
+
+---
+
+## Verify Packages
+
+Every downloaded package can be verified before installation to ensure integrity.
+
+Future releases may support:
+
+- SHA256 verification
+- Digital signatures
+- Signed package manifests
+
+---
+
+# Repository
+
+GlowHub will use a lightweight package repository maintained by LibreGlow.
+
+A package may contain metadata such as:
+
+```yaml
+name: glowsnap
+
+version: 1.0.0
+
+description: Modern Linux screenshot tool
+
+license: MIT
+
+homepage: https://libreglow.org
+
+repository: https://github.com/libreglow/glowsnap
+
+download:
+  linux-amd64: ...
+```
+
+GlowHub downloads the appropriate package automatically based on the user's platform.
+
+---
+
+# Built With
+
+GlowHub is planned to be written entirely in Go.
+
+Reasons include:
+
+- Small binaries
+- Excellent cross-platform support
+- Fast startup time
+- Easy networking
+- Native filesystem access
+- Minimal runtime dependencies
+
+---
+
+# Ecosystem Integration
+
+GlowHub is more than an installer.
+
+It is intended to become the gateway to the entire LibreGlow ecosystem.
+
+Future applications could include:
+
+- GlowSnap
+- Additional productivity tools
+- Developer utilities
+- Creative software
+- Community projects
+
+Everything managed through a single CLI.
+
+---
+
+# Open Source
+
+GlowHub will be completely open-source.
+
+Anyone will be able to:
+
+- inspect the source code
+- contribute improvements
+- report issues
+- suggest new features
+- create packages
+
+Community contributions are a core part of the project's future.
+
+---
+
+# Future Ideas
+
+Potential future capabilities include:
+
+- Automatic update notifications
+- Rollback to previous versions
+- Plugin system
+- Mirrors for faster downloads
+- Offline package cache
+- Package integrity verification
+- Repository mirrors
+- Dependency management
+- Package channels (stable, beta, nightly)
+
+---
+
+# Philosophy
+
+GlowHub is built around a simple idea:
+
+> One ecosystem.
+>
+> One package manager.
+>
+> Completely open source.

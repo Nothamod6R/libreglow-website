@@ -235,13 +235,13 @@ export function MagneticSpotlightMarquee({
     <section
       ref={containerRef}
       className={cn(
-        "spotlight relative w-full h-[100vh] min-h-[800px] overflow-hidden",
+        "spotlight relative w-full h-[100vh] min-h-[800px] overflow-hidden ",
         className
       )}
       style={{ fontFamily: "'Instrument Sans', sans-serif" }}
     >
       {/* Top Nav - Centered layout as seen in screenshot */}
-      <div className="absolute top-0 left-0 w-full p-6 flex flex-col items-center justify-center z-50 text-[10px] md:text-xs font-medium tracking-wide opacity-90 mix-blend-difference pointer-events-none">
+      <div className="absolute top-0 left-0 w-full p-6 flex flex-col items-center justify-center z-50 text-[10px] md:text-xs font-medium tracking-wide opacity-90  pointer-events-none">
       </div>
 
       {/* Marquee Strip */}
@@ -256,7 +256,7 @@ export function MagneticSpotlightMarquee({
       {/* Main Content Layout */}
       <div 
         ref={contentWrapperRef}
-        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 z-30 pointer-events-none mix-blend-difference"
+        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 z-30 pointer-events-none "
       >
         {/* Title */}
         <h1 

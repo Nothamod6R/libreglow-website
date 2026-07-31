@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 
+import { RootProvider } from 'fumadocs-ui/provider/next';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -91,12 +93,21 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          
+          <RootProvider
+                    search={{
+                      options: {
+                        type: 'static', 
+                      },
+                    }}
+                  >
           {children}
+            
+          </RootProvider>
+          
         </ThemeProvider>
       </body>
     </html>

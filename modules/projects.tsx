@@ -80,10 +80,9 @@ export default function Projects() {
           <CardFooter className="gap-3">
             <Button >
               <Link
-                href="https://github.com/libreglow/glowsnap"
-                target="_blank"
+                href="/glowsnap"
               >
-                GitHub
+                Download
               </Link>
             </Button>
 

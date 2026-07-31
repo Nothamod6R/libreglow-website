@@ -16,8 +16,8 @@ export default function Landing() {
         />
 
       </div>
-      <div className="relative flex justify-center items-center flex-col mt-[10vh] w-full overflow-hidden rounded-xl  bg-black">
-        <h1 className="text-4xl sm:text-5xl   font-extrabold">Modern free software</h1>
+      <div className="relative flex justify-center items-center flex-col mt-[10vh] w-full overflow-hidden rounded-xl  bg-black p-5">
+        <h1 className="text-4xl sm:text-5xl   font-extrabold  text-white">Modern free software</h1>
         <p className="mt-4 text-gray-400">
           Crafted for performance, designed for total freedom
         </p>
