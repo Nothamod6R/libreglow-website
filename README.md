@@ -4,6 +4,10 @@ The official website of **LibreGlow**.
 
 This repository contains the landing page and public website for the LibreGlow organization, built with modern web technologies and focused on performance, accessibility, and clean design.
 
+<center>
+  <img src="/public/og-image.png"/>
+</center>
+
 ##  Features
 
 - Modern responsive design
