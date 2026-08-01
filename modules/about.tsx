@@ -2,7 +2,7 @@ import { CursorCard } from "@/components/ui/cursor-card";
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-4xl px-6 py-24">
+    <section id="about" className="container mx-auto max-w-6xl px-6 py-24">
       <span className="text-sm font-medium text-muted-foreground">
         About
       </span>

@@ -72,7 +72,7 @@ export default function Glowsnap() {
     `${(release.asset.size / 1024 / 1024).toFixed(1)} MB`;
 
   return (
-    <main className="mx-auto mt-[8vh] flex min-h-screen max-w-6xl flex-col items-center px-6 pb-32 text-center">
+    <main className="mx-auto mt-[10vh] flex min-h-screen max-w-6xl flex-col items-center px-6 pb-32 text-center">
       <Header />
       <Badge variant="secondary">
         Linux • Open Source

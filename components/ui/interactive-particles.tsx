@@ -248,7 +248,7 @@ export function InteractiveParticles({
   className,
   background = "#000000",
   color = "#ffffff",
-  size = 1,
+  size = 0.5,
   randomness = 1.8,
   depth = 3.0,
   touchRadius = 0.15,

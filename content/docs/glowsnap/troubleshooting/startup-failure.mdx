@@ -1,0 +1,148 @@
+---
+title: GlowSnap does not start
+description: Resolve startup issues when GlowSnap fails to launch on Linux.
+---
+
+# GlowSnap does not start
+
+## Symptoms
+
+GlowSnap does not open after launching the AppImage.
+
+Depending on your system, you may see one of the following messages:
+
+```text
+Gdk-Message: Error 71 (Protocol error) dispatching to Wayland display.
+```
+
+or
+
+```text
+Failed to create GBM buffer of size ...
+```
+
+You may also notice that the application immediately exits without showing a window.
+
+---
+
+## Step 1 — Install WebKitGTK
+
+GlowSnap requires **WebKitGTK 4.1**.
+
+### Arch Linux
+
+```bash
+sudo pacman -S webkit2gtk-4.1
+```
+
+### Fedora
+
+```bash
+sudo dnf install webkit2gtk4.1
+```
+
+### Ubuntu / Debian
+
+```bash
+sudo apt install libwebkit2gtk-4.1-0
+```
+
+After installing WebKitGTK, try launching GlowSnap again.
+
+---
+
+## Step 2 — Verify your desktop environment
+
+GlowSnap is currently developed and tested primarily on Linux desktop environments using **Wayland**.
+
+Check your current session:
+
+```bash
+echo $XDG_SESSION_TYPE
+```
+
+Expected output:
+
+```text
+wayland
+```
+
+You can also check your desktop environment:
+
+```bash
+echo $XDG_CURRENT_DESKTOP
+```
+
+---
+
+## Step 3 — Try launching with X11
+
+If Wayland fails, try running GlowSnap using the X11 backend:
+
+```bash
+QT_QPA_PLATFORM=xcb GDK_BACKEND=x11 ./GlowSnap.AppImage
+```
+
+---
+
+## Step 4 — Disable WebKit compositing (optional)
+
+Some graphics drivers may have issues with hardware compositing.
+
+Try:
+
+```bash
+WEBKIT_DISABLE_COMPOSITING_MODE=1 \
+QT_QPA_PLATFORM=xcb \
+GDK_BACKEND=x11 \
+./GlowSnap.AppImage
+```
+
+---
+
+## Known issue
+
+Some users have reported startup failures caused by their graphics stack or Wayland implementation rather than GlowSnap itself.
+
+Typical errors include:
+
+```text
+Gdk-Message:
+Error 71 (Protocol error) dispatching to Wayland display.
+```
+
+or
+
+```text
+Failed to create GBM buffer...
+```
+
+These errors usually originate from:
+
+- Wayland
+- GTK
+- WebKitGTK
+- Graphics drivers (Mesa / NVIDIA / Intel / AMD)
+
+rather than GlowSnap itself.
+
+---
+
+## Still not working?
+
+Please open a GitHub Issue and include the following information:
+
+- Linux distribution
+- Desktop environment
+- Wayland or X11
+- Graphics card (Intel / AMD / NVIDIA)
+- Output of
+
+```bash
+echo $XDG_SESSION_TYPE
+echo $XDG_CURRENT_DESKTOP
+```
+
+- The complete terminal output when launching GlowSnap.
+
+This information helps identify desktop-environment or graphics-specific compatibility issues.

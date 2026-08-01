@@ -1,11 +1,5 @@
 import Link from "next/link";
 import {
-  ArrowUpRight,
-  Monitor,
-  Sparkles,
-} from "lucide-react";
-
-import {
   Card,
   CardContent,
   CardDescription,
@@ -17,8 +11,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShineBorder } from "@/components/ui/shine-border";
+import { useTheme } from "next-themes";
+import LiquidMetalButton, { LiquidMetal } from "@/components/ui/liquid-metal";
+import { ArrowRight } from "lucide-react";
 
 export default function Projects() {
+  const theme = useTheme()
+
   return (
     <section id="projects" className="container mx-auto max-w-6xl px-6 py-24">
       <div className="mb-12">
@@ -38,7 +37,7 @@ export default function Projects() {
         
         <Card className="flex flex-col relative overflow-hidden">
           
-          <ShineBorder shineColor={"white"} />
+          <ShineBorder shineColor={theme.theme === "dark" ? "white" : "black"} />
 
 
           <CardHeader>
@@ -78,13 +77,21 @@ export default function Projects() {
           </CardContent>
 
           <CardFooter className="gap-3">
-            <Button >
-              <Link
+            <Link
+              className="w-full"
                 href="/glowsnap"
               >
-                Download
+                <LiquidMetalButton
+                  icon={<ArrowRight className="w-5 h-5" />}
+                  metalConfig={{
+                    colorBack: "#3b82f6",
+                    colorTint: "#93c5fd",
+                  }}
+                  className="w-full"
+                >
+                  Download
+                </LiquidMetalButton>
               </Link>
-            </Button>
 
             
           </CardFooter>

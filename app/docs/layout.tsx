@@ -8,6 +8,10 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
       tree={source.pageTree}
       nav={{
         title: 'LibreGlow Docs',
+        transparentMode: 'always', // 👈 لجعل الخلفية شفافة تسمح بالمرور
+      }}
+      containerProps={{
+        className: '[&_header]:backdrop-blur-md [&_header]:backdrop-saturate-150', // 👈 تطبيق التغبيش الزجاجي على الـ Header
       }}
       links={[
         {
@@ -15,7 +19,6 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
           url: 'https://github.com/libreglow',
           external: true,
         },
-        
       ]}
       githubUrl="https://github.com/libreglow"
     >

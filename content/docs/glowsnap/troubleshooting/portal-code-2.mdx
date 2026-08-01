@@ -1,0 +1,103 @@
+---
+title: portal-code-2
+description: Resolve the "portal rejected the request with code 2" error when taking screenshots on Linux.
+---
+
+# Screenshot failed: portal rejected the request with code 2
+
+## Symptoms
+
+When attempting to capture a screenshot, GlowSnap displays the following error:
+
+```text
+ERR | Screenshot failed: portal rejected the request with code 2
+```
+
+This usually means that the **xdg-desktop-portal** services required for screenshot access are not running correctly.
+
+---
+
+## Solution
+
+### 1. Close GlowSnap completely
+
+Make sure the application is fully closed before continuing.
+
+---
+
+### 2. Enable and start the required portal services
+
+Run the following commands:
+
+```bash
+systemctl --user enable --now xdg-desktop-portal
+systemctl --user enable --now xdg-desktop-portal-gnome
+```
+
+---
+
+### 3. (Recommended) Restart your computer
+
+Although not strictly required, restarting your system is recommended to ensure all portal services are initialized correctly.
+
+---
+
+### 4. Verify that both services are running
+
+Check the status of each service:
+
+```bash
+systemctl --user status xdg-desktop-portal
+```
+
+```bash
+systemctl --user status xdg-desktop-portal-gnome
+```
+
+Both commands should report:
+
+```text
+Active: active (running)
+```
+
+For example:
+
+```text
+● xdg-desktop-portal.service - Portal service
+     Loaded: loaded (...)
+     Active: active (running)
+```
+
+The important part is:
+
+```text
+Active: active (running)
+```
+
+---
+
+## Why does this happen?
+
+GlowSnap uses the **XDG Desktop Portal** API to access screenshot functionality on Wayland desktops.
+
+If the required portal services are not running, the desktop environment rejects the screenshot request, resulting in:
+
+```text
+portal rejected the request with code 2
+```
+
+Starting the portal services resolves the issue in most cases.
+
+---
+
+## If the problem persists
+
+If both services are already running and the issue still occurs:
+
+- Restart your desktop session.
+- Make sure your desktop environment supports XDG Desktop Portal.
+- Open a GitHub Issue and include:
+  - Your Linux distribution
+  - Desktop environment (GNOME, KDE, etc.)
+  - Display server (Wayland or X11)
+  - The complete error message
